@@ -10,9 +10,7 @@ main <- function() {
   # get the setdiff between existing and full list
   # run request data on the setdiff
   df_list <- request_data(FULL_REQUEST_LIST)
-
   # write new datasets to existing
-
 }
 
 # Run the app
