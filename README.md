@@ -1,5 +1,13 @@
 # STAT 656 Project
 
+## Project Setup
+
+All that should be required is to open the `.Rproj` file using Rstudio. This does the following:
+
+* Sets up the root and all relative paths
+* Activates `renv` to install all required R packages
+* Sets up your environment variables (see the section below about the `config.ini` file)
+
 ## Data Connections
 
 ### Setting up your authentication
