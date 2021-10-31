@@ -1,3 +1,4 @@
+# STAT 656 Project
 
 ## Data Connections
 
@@ -14,3 +15,9 @@ FRED_API_KEY = <your key>
 ```
 
 ### Data API documentation
+
+Here's a list of data resources used in this project, where you can to go to sign up for API keys and read documentation. All resources are "basic" or "free" tier accounts.
+
+* [Glassnode](https://docs.glassnode.com/basic-api/)
+* [Quandl/NASDAQ](https://docs.data.nasdaq.com/)
+* [FRED](https://fred.stlouisfed.org/docs/api/fred/)
