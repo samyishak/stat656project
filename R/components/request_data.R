@@ -14,11 +14,12 @@ FULL_REQUEST_LIST = list(
 request_data <- function(request_list) {
   df_list <- list()
   for (request in names(request_list)) {
+    message(glue::glue("Requesting data for {request}"))
     elem <- rlang::exec(
       request,
-      start=request_list[[request]][[start]],
-      end=request_list[[request]][[end]],
-      freq=request_list[[request]][[freq]]
+      start=request_list[[request]][["start"]],
+      end=request_list[[request]][["end"]],
+      freq=request_list[[request]][["freq"]]
     ) %>% list()
     names(elem) <- request
     df_list <- append(df_list, elem)
