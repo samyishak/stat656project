@@ -10,6 +10,7 @@ FULL_REQUEST_LIST = list(
   btc_price_usd           = list(start="2010-01-01", end="2021-10-31", freq="d"),
   # quandl requests ####
   gold_price              = list(start="2010-01-01", end="2021-10-31", freq="d"),
+  silver_price            = list(start="2010-01-01", end="2021-10-31", freq="d"),
   # fred requests ####
   inflation_compensation  = list(start="2010-01-01", end="2021-10-31", freq="w")
   # ####

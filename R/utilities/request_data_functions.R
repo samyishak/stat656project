@@ -1,6 +1,6 @@
 # TODO look into function factories
 
-library(dplyr)
+suppressPackageStartupMessages(library(dplyr))
 
 # helper functions ####
 
@@ -107,6 +107,12 @@ request_quandl_data <- function(id, start=NULL, end=NULL, freq=NULL) {
 gold_price <- function(...) {
   request_quandl_data(id="LBMA/GOLD", ...) %>%
     select(date=Date, gold_price=`USD (PM)`) %>%
+    standardize_request()
+}
+
+silver_price <- function(...) {
+  request_quandl_data(id="LBMA/SILVER", ...) %>%
+    select(date=Date, silver_price=USD) %>%
     standardize_request()
 }
 

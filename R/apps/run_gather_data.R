@@ -23,7 +23,8 @@ for (df_name in names(df_list)) {
 rm(df_list)
 
 # read all dataframes
-all_df_paths <- list.files(output_path, full.names=TRUE)
+all_df_paths <- list.files(output_path, full.names=TRUE) %>%
+  stringr::str_subset("_all_data", negate=TRUE)
 df_list <- list()
 for (df_path in all_df_paths) {
   elem <- readr::read_rds(df_path) %>% list()
