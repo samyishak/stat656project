@@ -1,3 +1,5 @@
+# TODO look into function factories
+
 library(dplyr)
 
 # helper functions ####
@@ -61,6 +63,24 @@ btc_active_addresses <- function(...) {
     standardize_request()
 }
 
+btc_sending_addresses <- function(...) {
+  request_glassnode_data(id='btc', endpoint="v1/metrics/addresses/sending_count", ...) %>%
+    select(date, btc_sending_addresses=v) %>%
+    standardize_request()
+}
+
+btc_receiving_addresses <- function(...) {
+  request_glassnode_data(id='btc', endpoint="v1/metrics/addresses/receiving_count", ...) %>%
+    select(date, btc_receiving_addresses=v) %>%
+    standardize_request()
+}
+
+btc_new_addresses <- function(...) {
+  request_glassnode_data(id='btc', endpoint="v1/metrics/addresses/new_non_zero_count", ...) %>%
+    select(date, btc_new_addresses=v) %>%
+    standardize_request()
+}
+
 btc_price_usd <- function(...) {
   request_glassnode_data(id='btc', endpoint="v1/metrics/market/price_usd_close", ...) %>%
     select(date, btc_price_usd=v) %>%
@@ -84,9 +104,9 @@ request_quandl_data <- function(id, start=NULL, end=NULL, freq=NULL) {
   )
 }
 
-btc_bitfinex <- function(...) {
-  request_quandl_data(id="BITFINEX/BTCUSD", ...) %>%
-    select(date=Date, btc_bitfinex=Last, btc_bitfinex_volm=Volume) %>%
+gold_price <- function(...) {
+  request_quandl_data(id="LBMA/GOLD", ...) %>%
+    select(date=Date, gold_price=`USD (PM)`) %>%
     standardize_request()
 }
 

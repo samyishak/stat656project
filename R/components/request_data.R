@@ -3,13 +3,16 @@ source("R/utilities/request_data_functions.R")
 
 FULL_REQUEST_LIST = list(
   # glassnode requests ####
-  btc_active_addresses   = list(start="2020-01-01", end="2020-01-31", freq="d"),
-  btc_price_usd          = list(start="2020-01-01", end="2020-01-31", freq="d"),
+  btc_active_addresses    = list(start="2010-01-01", end="2021-10-31", freq="d"),
+  btc_sending_addresses   = list(start="2010-01-01", end="2021-10-31", freq="d"),
+  btc_receiving_addresses = list(start="2010-01-01", end="2021-10-31", freq="d"),
+  btc_new_addresses       = list(start="2010-01-01", end="2021-10-31", freq="d"),
+  btc_price_usd           = list(start="2010-01-01", end="2021-10-31", freq="d"),
   # quandl requests ####
-  btc_bitfinex           = list(start="2020-01-01", end="2020-01-31", freq="d"),
+  gold_price              = list(start="2010-01-01", end="2021-10-31", freq="d"),
   # fred requests ####
-  inflation_compensation = list(start="2020-01-01", end="2020-01-31", freq="w")
-  # end ####
+  inflation_compensation  = list(start="2010-01-01", end="2021-10-31", freq="w")
+  # ####
 )
 
 request_data <- function(request_list) {
