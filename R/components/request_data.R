@@ -3,7 +3,8 @@ source("R/utilities/request_data_functions.R")
 
 FULL_REQUEST_LIST = list(
   # glassnode requests ####
-  btc_price              = list(start="2020-01-01", end="2020-01-31", freq="d"),
+  btc_active_addresses   = list(start="2020-01-01", end="2020-01-31", freq="d"),
+  btc_price_usd          = list(start="2020-01-01", end="2020-01-31", freq="d"),
   # quandl requests ####
   btc_bitfinex           = list(start="2020-01-01", end="2020-01-31", freq="d"),
   # fred requests ####

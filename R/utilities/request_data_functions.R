@@ -55,11 +55,19 @@ request_glassnode_data <- function(id, endpoint, start=NULL, end=NULL, freq=NULL
     rename(date = t)
 }
 
-btc_price <- function(...) {
-  request_glassnode_data(id='btc', endpoint="v1/metrics/market/price_usd_close", ...) %>%
-    select(date, btc_price=v) %>%
+btc_active_addresses <- function(...) {
+  request_glassnode_data(id='btc', endpoint="v1/metrics/addresses/active_count", ...) %>%
+    select(date, btc_active_addresses=v) %>%
     standardize_request()
 }
+
+btc_price_usd <- function(...) {
+  request_glassnode_data(id='btc', endpoint="v1/metrics/market/price_usd_close", ...) %>%
+    select(date, btc_price_usd=v) %>%
+    standardize_request()
+}
+
+
 
 # quandl data functions ####
 
@@ -82,7 +90,7 @@ btc_bitfinex <- function(...) {
     standardize_request()
 }
 
-# fred data functions
+# fred data functions ####
 
 request_fred_data <- function(id, start=NULL, end=NULL, freq=NULL) {
   f <- "fred"
