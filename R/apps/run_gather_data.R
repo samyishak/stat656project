@@ -3,14 +3,25 @@
 #
 
 source("R/components/request_data.R")
-library(glue)
 
 main <- function() {
-  # check existing datasets
+
+  output_path <- "data/raw"
+  dir.create(output_path, showWarnings=FALSE, recursive=TRUE)
+
+  # check local for existing datasets
+  existing_dfs <- stringr::str_remove(list.files(output_path), "\\.rds$")
+
   # get the setdiff between existing and full list
-  # run request data on the setdiff
-  df_list <- request_data(FULL_REQUEST_LIST)
-  # write new datasets to existing
+  new_requests <- setdiff(names(FULL_REQUEST_LIST), existing_dfs)
+
+  # request data on the setdiff
+  df_list <- request_data(FULL_REQUEST_LIST[new_requests])
+
+  # write new datasets to local
+  for (df_name in names(df_list)) {
+    readr::write_rds(df_list[[df_name]], file.path(output_path, glue::glue("{df_name}.rds")))
+  }
 }
 
 # Run the app
